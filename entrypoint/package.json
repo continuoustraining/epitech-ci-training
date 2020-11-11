@@ -1,0 +1,13 @@
+{
+  "name": "epitech_web_app",
+  "version": "1.0.0",
+  "description": "Node.js on Docker for Epitech training",
+  "author": "Raphael Schumacher <raphael.schumacher@continuous.team>",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.16.1"
+  }
+}
