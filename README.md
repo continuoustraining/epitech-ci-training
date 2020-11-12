@@ -27,10 +27,10 @@
 ##### 5-Push the image to your personal account on dockerhub
 > Figure it out
 
-##### 6-By using Jest write unit tests for each method of the app.js file
+##### 6-By using Jest write integration tests for each route of the app.js file
 > https://www.npmjs.com/package/jest
-
-> update your package.json in order to user the right scripts
+> https://www.npmjs.com/package/supertest
+> Sample unit and integration tests can be found in the tests folder
 
 ##### 6.5-Compose
 > Theory: docker-compose
