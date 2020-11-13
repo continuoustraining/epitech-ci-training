@@ -1,5 +1,9 @@
 version: "3"
 
+networks:
+  private:
+    driver : bridge
+
 services:
   mysql:
     image: mysql:5.6
@@ -12,5 +16,11 @@ services:
       MYSQL_DATABASE: "${MYSQL_DATABASE}"
       MYSQL_USER: "${MYSQL_USER}"
       MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    networks:
+      - private
+  worker:
+    image: myimage:1.0
+    ports:
+      - "8080:8080"
     networks:
       - private
