@@ -40,13 +40,9 @@
 > https://docs.docker.com/compose/compose-file/
 
 ##### 6.6-Data access
-> Use the sequelize ORM to access a mysql database: https://sequelize.org/
-
-> Create a user module with the following methods:
-    - Create
-    - Read 
-    - Update
-    - Delete
+> Use the mysql package to create a connection to mysql in a new method contained in your app
+> Write a jest test for this method
+>https://www.npmjs.com/package/mysql#introduction
 
 ##### 7-Let's create our pipelines of CI together
 > Theory: CPHP presentation
