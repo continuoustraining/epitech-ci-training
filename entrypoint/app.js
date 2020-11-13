@@ -3,10 +3,9 @@
 const express = require('express');
 
 // Constants
-const PORT = 80;
+const PORT = 8080;
 const HOST = '0.0.0.0';
 
-// App
 const app = express();
 app.get('/hello', (req, res) => {
     res.set({role: req.headers.Role})
