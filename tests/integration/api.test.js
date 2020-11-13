@@ -3,8 +3,10 @@ const app = require('../../server')
 describe('Hello manager', () => {
   it('should answer to the manager', async () => {
     const res = await request(app)
-      .get('/')
-      .set({ 'role': ''})
-    expect(res.statusCode).toEqual()
+      .get('/hello')
+      .set({ 'role': 'manager'})
+      .expect(302)
+      .expect('Location','/manager')
+
   })
 })
