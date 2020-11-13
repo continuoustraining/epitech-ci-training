@@ -14,3 +14,14 @@ services:
       MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
     networks:
       - private
+  node_app:
+    build: 
+      context: ../
+      dockerfile: Dockerfile
+    image: node_app
+    networks:
+      - private
+    
+networks:
+  private:
+    
