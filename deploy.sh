@@ -1,3 +1,4 @@
+#!/bin/bash
 npm i
 npm test
 mysql -h mysql -uroot -e \
