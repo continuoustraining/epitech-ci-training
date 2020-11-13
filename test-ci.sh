@@ -1,3 +1,3 @@
 npm i && npm test
-mysql -h <host> -u<user> -p<password> database -e \
-  “SELECT 40 + 2';"
+mysql -h mysql -u root database -e \
+"SELECT 40 + 2;"
