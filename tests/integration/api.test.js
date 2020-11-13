@@ -10,7 +10,5 @@ describe('Hello manager', () => {
       .expect(302)
       .expect("Location", "/manager")
       
-    // expect(res.statusCode).toEqual(302) /*global expect*/
-    // expect(res.headers.location).toEqual("/manager")
   })
 })
