@@ -9,8 +9,8 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.get('/hello', (req, res) => {
-    res.set({role: req.headers.Role})
-    res.redirect('/' + req.headers.role).end()
+  res.set({role: req.headers.Role})
+  res.redirect('/' + req.headers.role).end()
 });
 app.get('/manager', (req, res) => {
   res.send('hello manager')
