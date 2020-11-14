@@ -13,14 +13,26 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: "my_db"
-      MYSQL_USER: "iskandre"
-      MYSQL_PASSWORD: "changeme"
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: ""
+      MYSQL_PASSWORD: ""
     networks:
       - private
   worker:
-    image: myimage:1.0
+    build: ../
+    depends_on:
+      - mysql
+    expose:
+      - 8080
     ports:
-      - "8080:8080"
+      - 8080:8080
     networks:
       - private
+  workertest:
+    build: ../
+    depends_on:
+      - mysql
+    entrypoint: npm test
+    networks:
+      - private
+      

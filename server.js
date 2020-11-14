@@ -1,18 +1,13 @@
 'use strict';
 
 const express = require('express');
+require("mysql");
 
 // Constants
 const PORT = 8080;
 const HOST = '0.0.0.0';
 
-var mysql      = require('mysql');
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'iskandre',
-  password : 'changeme',
-  database : 'my_db'
-});
+
 
 // App
 const app = express();
@@ -22,7 +17,21 @@ app.get('/hello', (req, res) => {
 });
 app.get('/manager', (req, res) => {
   res.send('hello manager')
+  var mysql      = require('mysql');
+  var connection = mysql.createConnection({
+    host     : 'mysql',
+    user     : 'root',
+    password : '',
+    database : 'test'
+  });
+  connection.connect
+  connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The solution is: ', results[0].solution);
+  });
+  connection.end();
 });
+
 app.get('/employee', (req, res) => {
   res.send('hello employee') 
 });
@@ -30,12 +39,3 @@ app.get('/employee', (req, res) => {
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
 module.exports = app
-
-connection.connect();
- 
-connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-  if (error) throw error;
-  console.log('The solution is: ', results[0].solution);
-});
- 
-connection.end();
