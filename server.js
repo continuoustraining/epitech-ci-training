@@ -13,7 +13,21 @@ app.get('/hello', (req, res) => {
     res.redirect('/' + req.headers.role).end()
 });
 app.get('/manager', (req, res) => {
-  res.send('hello manager')
+  //res.send('hello manager')
+  var mysql       = require('mysql');
+  var connection  = mysql.createConnection({
+    host      : 'mysql',
+    user      : 'root',
+    database  : 'test',
+    password  : ''
+  }) ;
+  connection.connect();
+  
+  connection.query('SELECT 1 + 1 AS solution', function (error, result, fields) {
+    if (error) throw error;
+    res.send('The solution is: '+ result[0].solution);
+  });
+  connection.end();
 });
 app.get('/employee', (req, res) => {
   res.send('hello employee') 
