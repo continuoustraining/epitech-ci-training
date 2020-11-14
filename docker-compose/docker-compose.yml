@@ -27,8 +27,6 @@ services:
     build: ../
     depends_on:
       - mysql
-    ports: 
-      - "8080:8080"
     image: node_app
     networks:
       - private
