@@ -4,21 +4,16 @@ networks:
   private:
 
 services:
-  mysql:
-    image: mysql:5.6
-    expose:
-      - 3306
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: "${MYSQL_DATABASE}"
-      MYSQL_USER: "${MYSQL_USER}"
-      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
-    networks:
-      - private
       
   node_app:
-    build: "../"
+    build: ../
+    ports:
+    - 80:8080
+    networks:
+    - private
+    
+  test:
+    build: ../
+    command: ["npm", "test"]
     networks:
     - private
