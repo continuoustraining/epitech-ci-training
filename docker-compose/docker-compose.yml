@@ -32,8 +32,7 @@ services:
     build: ../
     depends_on:
       - mysql
-    command: 
-      - npm test
+    command: npm test
     networks:
       - private
       

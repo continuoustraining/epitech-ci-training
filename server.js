@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-require("mysql");
 
 // Constants
 const PORT = 8080;
@@ -17,19 +16,6 @@ app.get('/hello', (req, res) => {
 });
 app.get('/manager', (req, res) => {
   res.send('hello manager')
-  var mysql      = require('mysql');
-  var connection = mysql.createConnection({
-    host     : 'mysql',
-    user     : 'root',
-    password : '',
-    database : 'test'
-  });
-  connection.connect
-  connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-    if (error) throw error;
-    console.log('The solution is: ', results[0].solution);
-  });
-  connection.end();
 });
 
 app.get('/employee', (req, res) => {
