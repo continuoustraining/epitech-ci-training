@@ -5,7 +5,17 @@ services:
   server:
     build: ../
     ports:
-      - 80:8080
+      - "80:8080"
+    depends_on:
+      - mysql
+    networks:
+      - private
+      
+  test:
+    build: ../
+    depends_on:
+      - mysql
+    command: npm test
     networks:
       - private
 
@@ -17,12 +27,11 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: "${MYSQL_DATABASE}"
-      MYSQL_USER: "${MYSQL_USER}"
-      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: ""
+      MYSQL_PASSWORD: ""
     networks:
       - private
-
 
 networks:
     private:

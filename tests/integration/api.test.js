@@ -7,6 +7,5 @@ describe('Hello manager', () => {
       .set({ 'role': 'manager'})
       .expect(302)
       .expect('Location','/manager')
-
   })
 })
