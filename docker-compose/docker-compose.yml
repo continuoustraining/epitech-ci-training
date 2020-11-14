@@ -9,19 +9,29 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
-      MYSQL_DATABASE: "${MYSQL_DATABASE}"
-      MYSQL_USER: "${MYSQL_USER}"
-      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_DATABASE: "test"
+      MYSQL_USER: ""
+      MYSQL_PASSWORD: ""
     networks:
       - private
   node_app:
+    depends_on:
+      - mysql
+    ports:
+      - "80:8080"
     build: 
       context: ../
       dockerfile: Dockerfile
     image: node_app
     networks:
       - private
-    
+  tester:
+    build: ../
+    depends_on:
+      - mysql
+    command: npm test
+    networks:
+      - private
 networks:
   private:
     

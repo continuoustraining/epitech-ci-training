@@ -14,6 +14,21 @@ app.get('/hello', (req, res) => {
 });
 app.get('/manager', (req, res) => {
   res.send('hello manager')
+  const mysql = require('mysql')
+  const connection = mysql.createConnection({
+    host     : 'mysql',
+    user     : 'root',
+    database : 'test'
+  });
+  
+  connection.connect()
+  
+  connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The solution is: ', results[0].solution);
+  });
+ 
+  connection.end();
 });
 app.get('/employee', (req, res) => {
   res.send('hello employee') 
