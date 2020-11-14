@@ -21,10 +21,18 @@ services:
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
       MYSQL_DATABASE: "test"
-      MYSQL_USER: ""
+      MYSQL_USER: "mysql"
       MYSQL_PASSWORD: ""
     networks: 
       - private
+      
+  test:
+    build: ../
+    depends_on:
+    - mysql
+    networks:
+      - private
+    command: npm test
       
 networks:
   private:

@@ -23,6 +23,7 @@ app.get('/manager', (req, res) => {
   connection.connect();
   connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
     if (error) throw error;
+    console.log(results.toString());
   });
   res.send('hello manager')
   connection.end();
